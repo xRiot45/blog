@@ -1,4 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import { User } from "@/types";
 import { Head, Link, router } from "@inertiajs/react";
 import { toast } from "react-toastify";
 
@@ -13,12 +14,7 @@ interface Blog {
 
 interface DashboardProps {
   auth: {
-    user: {
-      id: number;
-      email: string;
-      name: string;
-      email_verified_at: string;
-    };
+    user: User;
   };
   blogs: Blog[];
 }
