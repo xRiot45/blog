@@ -42,7 +42,7 @@ class BlogController extends Controller
 
         Blog::create($validated);
 
-        return redirect()->route('dashboard')->with('message', 'Blog created successfully');
+        return redirect()->route('blog.index')->with('message', 'Blog created successfully');
     }
 
 
