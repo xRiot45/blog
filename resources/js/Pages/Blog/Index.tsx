@@ -80,12 +80,12 @@ export default function Blog({ auth, blogs }: DashboardProps) {
                     </p>
 
                     <div className="flex justify-start items-center mt-6 gap-2">
-                      <Link href={"/dashboard/blog/view" + blog.id}>
+                      <Link href={"/blog/view/" + blog.id}>
                         <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                           View Blog
                         </button>
                       </Link>
-                      <Link href={"/dashboard/blog/edit/" + blog.id}>
+                      <Link href={"/blog/edit/" + blog.id}>
                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                           Edit Blog
                         </button>

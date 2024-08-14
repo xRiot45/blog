@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
-
     public function index(): Response
     {
         $userId = Auth::user()->id;
@@ -45,7 +44,10 @@ class BlogController extends Controller
         return redirect()->route('blog.index')->with('message', 'Blog created successfully');
     }
 
-
+    public function edit()
+    {
+        return Inertia::render('Blog/Edit');
+    }
 
     public function deleteBlog($id): RedirectResponse
     {

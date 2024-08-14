@@ -25,7 +25,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Blog Routes
     Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-    // Route::get('/blog', [BlogController::class, 'getAllBlogsByUserID'])->name('blog.getAllBlogsByUserID');
     Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');
     Route::delete('/blog/{id}', [BlogController::class, 'deleteBlog'])->name('blog.delete');
