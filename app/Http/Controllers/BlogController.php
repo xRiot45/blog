@@ -58,9 +58,34 @@ class BlogController extends Controller
         return redirect()->route('blog.index')->with('message', 'Blog created successfully');
     }
 
-    public function edit()
+    public function edit($id): Response
     {
-        return Inertia::render('Blog/Edit');
+        $userId = Auth::user()->id;
+        $blog = Blog::select('id', 'title', 'description')->where('user_id', $userId)->where('id', $id)->first();
+
+        if (!$blog) {
+            abort(404, 'Blog not found');
+        }
+
+        return Inertia::render('Blog/Edit', [
+            'blog' => $blog,
+        ]);
+    }
+
+    public function update(BlogRequest $request, $id): RedirectResponse
+    {
+        $blog = Blog::find($id);
+        if (!$blog) {
+            return redirect()->route('blog.index')->with('message', 'Blog not found!');
+        }
+
+        if ($blog->user_id !== Auth::user()->id) {
+            return redirect()->route('blog.index')->with('error', 'Unauthorized to edit this blog.');
+        }
+
+        $validated = $request->validated();
+        $blog->update($validated);
+        return redirect()->route('blog.index')->with('message', 'Blog updated successfully!');
     }
 
     public function deleteBlog($id): RedirectResponse
