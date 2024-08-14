@@ -6,7 +6,7 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { User } from "@/types";
 
-export default function Authenticated({
+export default function AuthenticatedLayout({
   user,
   header,
   children,

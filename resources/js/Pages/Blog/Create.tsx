@@ -43,9 +43,9 @@ export default function BlogCreate({ auth }: PageProps) {
       <div className="py-12">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg p-8">
-            <Link href={route("dashboard")}>
+            <Link href={route("blog.index")}>
               <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Back To Dashboard
+                Back To Your Blog
               </button>
             </Link>
 

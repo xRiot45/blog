@@ -29,6 +29,20 @@ class BlogController extends Controller
         ]);
     }
 
+    public function show($id): Response
+    {
+        $userId = Auth::user()->id;
+        $blog = Blog::select('id', 'title', 'description')->where('user_id', $userId)->where('id', $id)->first();
+
+        if (!$blog) {
+            abort(404, 'Blog not found');
+        }
+
+        return Inertia::render('Blog/Show', [
+            'blog' => $blog,
+        ]);
+    }
+
     public function create(): Response
     {
         return Inertia::render('Blog/Create');

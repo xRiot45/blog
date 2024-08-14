@@ -12,16 +12,14 @@ interface Blog {
   };
 }
 
-interface DashboardProps {
+interface BlogProps {
   auth: {
     user: User;
   };
   blogs: Blog[];
 }
 
-export default function Blog({ auth, blogs }: DashboardProps) {
-  console.log(blogs);
-
+export default function Blog({ auth, blogs }: BlogProps) {
   const onDelete = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -80,7 +78,7 @@ export default function Blog({ auth, blogs }: DashboardProps) {
                     </p>
 
                     <div className="flex justify-start items-center mt-6 gap-2">
-                      <Link href={"/blog/view/" + blog.id}>
+                      <Link href={"/blog/show/" + blog.id}>
                         <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                           View Blog
                         </button>
